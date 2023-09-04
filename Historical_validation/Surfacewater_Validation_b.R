@@ -43,10 +43,7 @@ gt$layout[grepl("panel", gt$layout$name), ]$clip <- "off"
 
 # Draw the plot
 p = grid.newpage()
-cairo_pdf(paste('Reservoir_Storage1.pdf',sep=""),width = 10,height=4)
-#cairo_pdf(paste('Reservoir_Storage.svg'),width = 10,height=4)
-
-#save_plot("your_plot.svg", fig = plot1, width=10, height=4)
+cairo_pdf(paste('Reservoir_Storage.pdf',sep=""),width = 10,height=4)
 
 grid.draw(gt)
 dev.off()
