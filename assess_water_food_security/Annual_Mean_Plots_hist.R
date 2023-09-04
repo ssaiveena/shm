@@ -153,6 +153,6 @@ g$layout[grepl("panel", g$layout$name), ]$clip <- "off"
 # Draw the plot
 grid.newpage()
 #cairo_pdf(paste('4p58p5.pdf',sep=""),width = 10,height=10)
-png(paste('4p58p5_new.png',sep=""),width = 10,height=10,units='in',type="cairo",res=72*6)
+png(paste('plot.png',sep=""),width = 10,height=10,units='in',type="cairo",res=72*6)
 grid.draw(g)
 dev.off()
