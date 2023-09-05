@@ -2,16 +2,16 @@ function [result] = eval_objs_GW_Recipient_CLD1(Q2,n,rainfall_CA2,PE_CA2)
 
 %load the input data
 load('Demand_NSDam_FN.mat')
-Demand_NSDam_FN = sum(reshape(Demand_NSDam_FN,2,[]));
+Demand_NSDam_FN = sum(reshape(Demand_NSDam_FN,2,[])); %converting fortnightly to monthly data 
 load('maxrelease.mat')
 maxrelease = max(reshape(maxrelease,2,[]));
-load('Demand_delta.mat')
-live_storage_r2  = 5733;%5733;%5733; 
+load('Demand_delta.mat') %load delta demand data
+live_storage_r2  = 5733;
 
-%the commandarea is changed with time and hence the recharge is caluculated
+%the commandarea is changed with time and hence the recharge is calculated
 %at every timestep based on rainfall
-load('area_NS.mat')
-rainfall_CA2 = rainfall_CA2;
+load('area_NS.mat') %load data for changing area with time
+
 %replicate the data for the desired number of years
 Demand_NS = Demand_NSDam_FN;
 maxrelease = repmat(maxrelease,1,n);
@@ -32,17 +32,6 @@ Q = Q2;
 h = zeros(1,12*n);
 
 for i=1:12*n  %24 as it is a  fortnightly model
-%      if i>12*5  
-%         if deficit2(i-12)~=0 && deficit2(i-12*2)~=0 && deficit2(i-12*3)~=0 && deficit2(i-12*4)~=0 && deficit2(i-12*5)~=0
-%             Demand_NS(i)  = max(0,Demand_NS(i) - min(2 * deficit2(i-12),250));
-%             live_storage_r2 = min(live_storage_r2+500,6840);
-%         elseif deficit2(i-12)~=0  
-%             Demand_NS(i)  = max(0,Demand_NS(i) - min(deficit2(i-12),125));
-%         else
-%             Demand_NS(i) = Demand_NS(i);
-%         end
-%     end
-
      %1. Add supply to reservoir volume
      if i~=1
         V2(i)=V2(i-1)+Q2(i);
@@ -60,13 +49,6 @@ for i=1:12*n  %24 as it is a  fortnightly model
     canal_cap(i) = demand_NS_actual(i);
     deficit2(i)         = Demand_NS(i)- demand_NS_actual(i);
     V2(i)               = max(0,V2(i) - demand_NS_actual(i));
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %calling the aquifer submodel
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   [h,gw] = Aquifer_model_head_2(areaNS(i),rainfall_CA2(i),i,h,deficit2(i),PE_CA2(i));
-%    GW_util(i) = gw;
-%    demand_NS_actual(i) = demand_NS_actual(i) + GW_util(i);
-%    deficit2(i) = deficit2(i)-GW_util(i);   
          
 %threshold is set to 95% of live capacity
 %the releases should be tracked and should not be greater than the inflows
@@ -87,7 +69,7 @@ blue_water_withdrawal_donor2 = Q2 - release2-water_use;
 [ Withdrawal_Limits_R ] = Blue_water_withdrawals( Q2 );
 wwe =  blue_water_withdrawal_donor2-repmat(Withdrawal_Limits_R,1,n);
  
-    result.release = floodcheck2;%stor_rel;
+    result.release = floodcheck2;
     result.deficit =  deficit2;
     result.storage = V2;
     result.GW = h;
