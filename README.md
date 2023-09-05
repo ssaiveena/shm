@@ -10,5 +10,5 @@ The methodological framework for developing alternative CLDs and SHMs is as foll
 6. Assess water and food security during historical data
 
 In the following, the repository data is arranged as per the methodological framework
-1. The CLD1 developed from preliminary conceptualization is added in folder [CLD1](https://github.com/ssaiveena/shm/tree/main/CLD1)https://github.com/ssaiveena/shm/tree/main/CLD1
+1. The CLD1 developed from preliminary conceptualization is added in folder [CLD1](https://github.com/ssaiveena/shm/tree/main/CLD1)
 2. 
