@@ -30,18 +30,7 @@ Q = Q2;
 %S_GW1 for donor and S_GW2 for recipient 
 h = zeros(1,12*n);
 
-for i=1:12*n  %24 as it is a  fortnightly model
-%      if i>12*5  
-%         if deficit2(i-12)~=0 && deficit2(i-12*2)~=0 && deficit2(i-12*3)~=0 && deficit2(i-12*4)~=0 && deficit2(i-12*5)~=0
-%             Demand_NS(i)  = max(0,Demand_NS(i) - min(2 * deficit2(i-12),250));
-%             live_storage_r2 = min(live_storage_r2+500,6840);
-%         elseif deficit2(i-12)~=0  
-%             Demand_NS(i)  = max(0,Demand_NS(i) - min(deficit2(i-12),125));
-%         else
-%             Demand_NS(i) = Demand_NS(i);
-%         end
-    %end
-
+for i=1:12*n  
      %1. Add supply to reservoir volume
      if i~=1
         V2(i)=V2(i-1)+Q2(i);
