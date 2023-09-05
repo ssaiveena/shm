@@ -6,7 +6,7 @@ Demand_NSDam_FN = sum(reshape(Demand_NSDam_FN,2,[]));
 load('maxrelease.mat')
 maxrelease = max(reshape(maxrelease,2,[]));
 load('Demand_delta.mat')
-live_storage_r2  = 5733;%5733;%5733; 
+live_storage_r2  = 5733;
 
 %the commandarea is changed with time and hence the recharge is caluculated
 %at every timestep based on rainfall
