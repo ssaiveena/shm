@@ -26,17 +26,10 @@ end
 %area
 
 if i>1
-%h(i) = min(7.3,max(0, h(i-1)+rainfall_recharge(i)- ((min(Qpmax,demand_NS_CA) *10^6)/(Sy2*Area2))- alpha_s(i)*h(i-1)));
 h(i) =  h(i-1)+rainfall_recharge(i)-((min(Qpmax,demand_NS_CA) *10^6)/(Sy2*Area2))- alpha_s(i)*h(i-1);
-%h(i-1) = (h(i)-rainfall_recharge(i)+((min(Qpmax,demand_NS_CA) *10^6)/(Sy2*Area2)))/(1+alpha_s(i));
 else
 h(i) =4.84;
 end
 
 data = min(Qpmax,demand_NS_CA);
 end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%satisfying demands of the rainfed agriculture
-%demand_NS_CA_actual = min(0.1*rainfall_CA2*0.001*9*10^9*10^(-6),demand_NS_CA-min(100,demand_NS_CA));
-%Rainfed_demand_sat = demand_NS_CA_actual;
