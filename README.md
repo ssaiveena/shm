@@ -14,7 +14,7 @@ In the following, the repository data is arranged as per the methodological fram
 2. Details on semi-structured interviews are added in the manuscript
 3. Alternative CLDs (CLD2 and CLD3) are added in the folder [CLD2 and CLD3](https://github.com/ssaiveena/shm/tree/main/CLD2%20and%20CLD3)
 4. Simulating the developed SHMs are using the Matlab code [main.m](https://github.com/ssaiveena/shm/blob/main/main.m). Each SHM is simulated using this code
-5. The validation of historical data is included in the folder [Historical_Validation] (https://github.com/ssaiveena/shm/tree/main/Historical_validation)
-6. The water and food security indicators are assessed using the code in the folder [assess_water_food_security] (https://github.com/ssaiveena/shm/tree/main/assess_water_food_security)
+5. The validation of historical data is included in the folder [Historical_Validation](https://github.com/ssaiveena/shm/tree/main/Historical_validation)
+6. The water and food security indicators are assessed using the code in the folder [assess_water_food_security](https://github.com/ssaiveena/shm/tree/main/assess_water_food_security)
 
-All the relevant data is added to [Data] (https://github.com/ssaiveena/shm/tree/main/Data) folder
+All the relevant data is added to [Data](https://github.com/ssaiveena/shm/tree/main/Data) folder
