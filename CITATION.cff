@@ -16,3 +16,5 @@ identifiers:
 abstract: >-
   This repository contains data and code related to the
   Sociohydrological model study for publication.
+version: 1.0.0
+date-released: 2022-09-10
